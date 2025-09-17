@@ -1,0 +1,8 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: {{ .Values.configMap.name }}
+data:
+  {{- range $key, $value := .Values.configMap.data}} # faz um loop capturando o key e value declarados no arquivo helm/value.yaml em configMap.data
+  {{$key}}: "{{$value}}" # declara como usar essas variáveis após capturadas
+  {{- end}}

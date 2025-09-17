@@ -1,0 +1,7 @@
+apiVersion: v2
+name: alura-foods-app
+description: Um Helm chart para fazer deploy dos micro serviços da Alura Foods
+type: application
+version: 1.0.0 # Versão do chart
+appVersion: 0.0.1 # Versão da aplicação
+
