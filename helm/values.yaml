@@ -8,3 +8,13 @@ gateway:
   replicaCount: 2
   image: leonardosartorello/java-gateway-k8s:v3
   port: 80
+
+pagamentos:
+  replicaCount: 2
+  image: leonardosartorello/java-pagamentos-k8s:v3
+  port: 40000
+
+pedidos:
+  replicaCount: 2
+  image: leonardosartorello/java-pedidos-k8s:v3
+  port: 40001

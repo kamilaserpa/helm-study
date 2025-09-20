@@ -91,4 +91,32 @@ my-chart/
  - templates/_helpers.tpl: Contém definições de funções de template que podem ser usadas em outros arquivos de template. Essas funções ajudam a manter os templates DRY (Don't Repeat Yourself).
  - .helmignore: Funciona de forma semelhante a um .gitignore, especificando os arquivos e diretórios que devem ser ignorados ao empacotar o chart.
 
+#### tempaltes/_helpers.tpl
+
+O arquivo [tempaltes/_helpers.tpl](/helm/templates/_helpers.tpl) é útil para definir funções auxiliares reutilizáveis que podem ser chamadas em qualquer template do seu chart.
+
+A propriedade `{{.Release.Name}}` não é definida em nenhum arquivo do seu projeto. Ela é uma variável built-in do Helm que é automaticamente disponibilizada durante a renderização dos templates.
+
+Quando instalar o chart, por exemplo:
+```bash
+ helm install alura-foods-prod ./helm
+```
+
+O {{.Release.Name}} será substituído por "alura-foods-prod".
+Para usar em um template:
+```bash
+# _helpers.tpl
+{{- define "alura-foods-app.labels"-}}
+app.kubernetes.io/name: {{.Chart.Name}}
+app.kubernetes.io/instance: {{.Release.Name}}
+app.kubernetes.io/version: {{.Chart.AppVersion}}
+app.kubernetes.io/managed-by: {{.Release.Service}}
+{{- end}}
+# anothe template
+metadata:
+  labels:
+    {{- include "alura-foods-app.labels" . | nindent 4 }} 
+    # nindent 4 significa que adiciona 4 espaços iniciais pra alinhar o yaml
+```
+
 ### Criando o nosso próprio Helm Chart
