@@ -18,3 +18,8 @@ pedidos:
   replicaCount: 2
   image: leonardosartorello/java-pedidos-k8s:v3
   port: 40001
+
+server:
+  replicaCount: 2
+  image: leonardosartorello/java-server-k8s:v3
+  port: 8081
