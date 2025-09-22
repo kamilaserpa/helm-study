@@ -42,7 +42,7 @@ Projeto inicial do curso: https://github.com/alura-cursos/Kubernetes-helm/tree/p
 ### Exemplo de instalação de um chart
 
 Podemos pesquisar por pacotes em https://artifacthub.io/.
-Vamos instalar o MySQL, por exemplo, em ArtifactHub buscamos MySQL, clicamos em "Install", serão exibidos os comandos para a instalação. Com o Docker e minikube em execução:
+Vamos instalar o MySQL, por exemplo, em ArtifactHub buscamos MySQL, https://artifacthub.io/packages/helm/bitnami/mysql, clicamos em "Install", serão exibidos os comandos para a instalação. Com o Docker e minikube em execução:
 ```bash
 $ helm repo add bitnami https://charts.bitnami.com/bitnami
 $ helm install my-mysql bitnami/mysql --version 14.0.3
@@ -186,4 +186,3 @@ kind: Deployment
 …
 {{- end }}
 ```
-

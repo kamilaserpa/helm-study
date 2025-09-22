@@ -5,3 +5,7 @@ type: application
 version: 1.0.0 # Versão do chart
 appVersion: 0.0.1 # Versão da aplicação
 
+dependencies:
+  - name: mysql
+    version: "11.1.7"
+    repository: https://charts.bitnami.com/bitnami
