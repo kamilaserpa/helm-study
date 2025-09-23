@@ -211,3 +211,6 @@ Outros comandos:
 
 Para visualizar podemos executar: `minikube dashboard`.
 ![](/assets/minikube-dashboard.png)
+
+Nesse momento já temos todos os templates relacionados à aplicação, mas precisamos ajustar o acesso ao banco de dados. Vamos utilizar as partes criadas pelo Chart do MySQL.
+Observamos que o mysql cria seu próprio service e secrets. Vamos configurar os values para usar esses dados automaticamente.

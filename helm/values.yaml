@@ -2,7 +2,8 @@ configMap:
   name: dados
   data:
     SERVER_HOST: "http://server-0.server:8081/eureka,http://server-1.server:8081/eureka"
-    DB_HOST: "mysql"
+    DB_HOST: "alura-foods-app-mysql"
+    DB_USER: "root"
 
 gateway:
   replicaCount: 2
@@ -25,9 +26,9 @@ server:
   port: 8081
 
 service:
-  - name: mysql
-    label: mysql
-    port: 3306
+  # - name: mysql
+  #   label: mysql
+  #   port: 3306
   - name: server
     label: server
     port: 8081
@@ -40,3 +41,11 @@ service:
 
 secret:
   name: alura-foods-app-mysql
+
+loadbalancer:
+  - name: loadbalancer-eureka
+    port: 8081
+    selector: server
+  - name: loadbalancer-gateway
+    port: 8082
+    selector: gateway
