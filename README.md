@@ -1,7 +1,38 @@
 # HELM
 
-Iniciando minikube:
-`minikube start --memory=6G --cpus=4`
+
+<div align="center">
+  <p>
+  Repositório de estudo sobre Helm e Kubernetes, empacotando e publicando localmente (Minikube) um conjunto de microserviços do domínio Alura Foods (`gateway`, `server`, `pedidos` e `pagamentos`) via Helm Chart, incluindo dependência do MySQL.
+  </p>
+
+  [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE) [![Helm](https://img.shields.io/badge/Helm-Chart-0F1689?logo=helm)](https://helm.sh/) [![Kubernetes](https://img.shields.io/badge/Kubernetes-Cluster-326CE5?logo=kubernetes&logoColor=white)](https://kubernetes.io/) [![Minikube](https://img.shields.io/badge/Minikube-local-3DDC84?logo=kubernetes&logoColor=white)](https://minikube.sigs.k8s.io/)
+
+  <p>
+      <a href="https://www.linkedin.com/in/kamila-serpa/" target="_blank">
+        <img src="https://img.shields.io/badge/LinkedIn-0077B5?style=flat-square&logo=linkedin&logoColor=white" alt="LinkedIn">
+      </a>
+  </p>
+</div>
+
+## Índice
+- [HELM](#helm)
+  - [Índice](#índice)
+  - [O que é o Helm?](#o-que-é-o-helm)
+    - [Funções do Helm](#funções-do-helm)
+    - [Vantagens do Helm](#vantagens-do-helm)
+    - [Desvantagens do Helm](#desvantagens-do-helm)
+    - [Funções específicas do Helm](#funções-específicas-do-helm)
+    - [Exemplo de instalação de um chart](#exemplo-de-instalação-de-um-chart)
+  - [Chart](#chart)
+    - [Descrição dos Arquivos e Diretórios](#descrição-dos-arquivos-e-diretórios)
+      - [tempaltes/\_helpers.tpl](#tempaltes_helperstpl)
+      - [Diferenças entre Deployments e StatefulSets](#diferenças-entre-deployments-e-statefulsets)
+      - [Pontos de atenção ao trabalhar com StatefulSets em Helm](#pontos-de-atenção-ao-trabalhar-com-statefulsets-em-helm)
+      - [Condicional em templates Helm](#condicional-em-templates-helm)
+  - [Realizano o deploy](#realizano-o-deploy)
+
+
 
 Projeto inicial do curso: https://github.com/alura-cursos/Kubernetes-helm/tree/projeto_inicial
 
@@ -40,6 +71,8 @@ Projeto inicial do curso: https://github.com/alura-cursos/Kubernetes-helm/tree/p
  - helm uninstall: remove uma release do cluster.
 
 ### Exemplo de instalação de um chart
+Iniciando minikube:
+`minikube start --memory=6G --cpus=4 --driver=docker`
 
 Podemos pesquisar por pacotes em https://artifacthub.io/.
 Vamos instalar o MySQL, por exemplo, em ArtifactHub buscamos MySQL, https://artifacthub.io/packages/helm/bitnami/mysql, clicamos em "Install", serão exibidos os comandos para a instalação. Com o Docker e minikube em execução:
