@@ -37,3 +37,6 @@ service:
   - name: pedidos-ms
     label: pedidos
     port: 40001
+
+secret:
+  name: alura-foods-app-mysql

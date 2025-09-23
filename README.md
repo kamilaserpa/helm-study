@@ -186,3 +186,28 @@ kind: Deployment
 …
 {{- end }}
 ```
+
+## Realizano o deploy
+Com todos os charts da aplicação vamos criar um chart dentro do Helm.
+Na pasta com os arquivos do helm (/helm) vamos baixar as dependências com `helm dependency update`.
+
+Passos para deploy com minikube:
+```shell
+$ minikube stop
+$ minikube start --memory=6G --driver=docker
+# Dentro da pasta do /helm (veja comentário abaixo)
+$ helm install alura-foods-app .
+# Para atualizar a aplicação
+$ helm upgrade alura-foods-app .
+```
+Para instalar a aplicação pela primeira vez `helm install <nome-release> <localizacao-do-chart>`, no nosso caso executamos dentro da pasta helm `helm install alura-foods-app .`.
+
+Outros comandos:
+ - helm list --all
+ - helm list --all-namespaces
+ - helm install alura-foods-app --namespace alura-foods-app .
+
+![](/assets/deploy-helm.png)
+
+Para visualizar podemos executar: `minikube dashboard`.
+![](/assets/minikube-dashboard.png)

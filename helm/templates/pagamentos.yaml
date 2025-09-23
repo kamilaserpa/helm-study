@@ -38,7 +38,7 @@ spec:
               name: {{.Values.configMap.name}}
               key: DB_USER
         - name: DB_PASSWORD
-            valueFrom:
-              secretKeyRef:
+          valueFrom:
+            secretKeyRef:
               name: {{.Values.secret.name}}
               key: mysql-root-password

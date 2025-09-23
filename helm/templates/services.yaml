@@ -7,7 +7,7 @@ metadata:
     app: {{$service.label}}
 spec:
   ports:
-  - port: {{$service.port}}3306
+  - port: {{$service.port}}
     name: {{$service.name}}
   clusterIP: None
   selector:
